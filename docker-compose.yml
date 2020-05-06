@@ -1,0 +1,11 @@
+# Docker Compose Image for Local Testing
+version: '3'
+services:
+  cloud-run-hello-web-server:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - K_SERVICE=local-testing-service
+      - K_REVISION=local-testing-revision
