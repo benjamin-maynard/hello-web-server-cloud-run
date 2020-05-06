@@ -8,3 +8,16 @@ steps:
     # Also add the latest tag
     - name: 'gcr.io/cloud-builders/gcloud'
       args: [ 'container', 'images', 'add-tag', 'gcr.io/$PROJECT_ID/hello-web-server-cloud-run:$COMMIT_SHA', 'gcr.io/$PROJECT_ID/hello-web-server-cloud-run:latest' ]
+    # Deploy to Cloud Run
+      - name: 'gcr.io/cloud-builders/gcloud'
+      args:
+        - 'run'
+        - 'deploy'
+        - 'hello-web-server-cloud-run'
+        - '--image'
+        - 'gcr.io/$PROJECT_ID/hello-web-server-cloud-run:$COMMIT_SHA'
+        - '--region'
+        - 'europe-west1'
+        - '--platform'
+        - 'managed'
+        - '--allow-unauthenticated'
