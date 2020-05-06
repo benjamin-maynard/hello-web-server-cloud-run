@@ -1,4 +1,4 @@
-# Deploy Pre-Build Image
+# Deploy Pre-Built Image
 
 These instructions give you a quick start with Cloud Run. You will deploy a pre-built image of the hello-web-server-cloud-run service to your own Google Cloud Project.
 
